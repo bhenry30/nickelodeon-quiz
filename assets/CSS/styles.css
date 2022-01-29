@@ -4,17 +4,17 @@
 background-color: var(--primary-color);
 }
 
-@font-face {
+/* @font-face {
     font-family: someTimeLater;
     src: url(SomeTimeLater-w1J1n.otf);
-}
+} */
 
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     font-size: 1rem;
-    font-family: 'someTimeLater';
+    /* font-family: 'someTimeLater'; */
 }
 
 h1 {
@@ -43,9 +43,11 @@ display: none;
     margin: 2rem;
     color: var(--primary-color);
     text-align: center;
-    width: 16rem;
-    font-size: 40px;
-    border-radius: 8px;
+    width: 20rem;
+    font-size: 32px;
+    border-width: 0px;
+    border-radius: 40px;
+    text-transform: uppercase;
 }
 
 .btn:hover {
