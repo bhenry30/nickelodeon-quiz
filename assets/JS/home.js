@@ -12,11 +12,12 @@
     // 3.3 need an array/variable/object to store questions and correct answer
 // 4. Subtract 5 seconds from timer if answer is wrong
     // 4.1 Timer should be displayed while the questions and answers change
-
-
-const startBtn = document.getElementById("start-btn");
+    
+    
+const startBtn = document.getElementById("start-btn");    
 const homeEl = document.getElementById("home");
-var answerBtn = Array.from(document.getElementById("answer-btn"));
+const questionEl = document.getElementById("question");
+// var answerBtn = Array.from(document.getElementById("answer-btn"));
 var currentQuestion = {}
 var questions = [
     {
@@ -60,12 +61,16 @@ var questions = [
         rightAnswer: 2
     }
 ]
+const answerBtnsEl = document.getElementById('answer-btns')
 
 function startQuiz() {
-    homeEl.classList.add("hidden")
-    console.log("I am working")
+    homeEl.classList.add("hidden");
+    score = 0;
+    nextQuestion = questions[0].question
+    // setNextQuestion();
+
     // setTimeout 
-    
+    console.log(nextQuestion)
 };
     
 startBtn.addEventListener("click", startQuiz);
