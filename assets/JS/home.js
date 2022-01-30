@@ -14,10 +14,52 @@
     // 4.1 Timer should be displayed while the questions and answers change
 
 
-var startBtn = document.getElementById("start-btn");
-var homeEl = document.getElementById("home");
-
-
+const startBtn = document.getElementById("start-btn");
+const homeEl = document.getElementById("home");
+var answerBtn = Array.from(document.getElementById("answer-btn"));
+var currentQuestion = {}
+var questions = [
+    {
+        question: "In Jimmy Neutron, what is Jimmy's dad's favorite animal?",
+        answer1: "Goose",
+        answer2: "Duck",
+        answer3: "Hedgehog",
+        answer4: "Platypus",
+        rightAnswer: 2
+    },
+    {
+        question: "In Hey Arnold, what color hat does Arnold wear?",
+        answer1: "Red",
+        answer2: "Green",
+        answer3: "Blue",
+        answer4: "Yellow",
+        rightAnswer: 3
+    },
+    {
+        question: "In Rugrats, what does Stu Pickles do for a living?",
+        answer1: "Toy Inventor",
+        answer2: "Bicycle Salesman",
+        answer3: "Bus Driver",
+        answer4: "Math Teacher",
+        rightAnswer: 1
+    },
+    {
+        question: "In Rocket Power, what color is Twister's skateboard?",
+        answer1: "Purple",
+        answer2: "Yellow",
+        answer3: "Light Blue",
+        answer4: "Orange",
+        rightAnswer: 4
+    },
+    {
+        question: "In Spongebob Squarepants, what instrument does Squidward Play?",
+        answer1: "Flute",
+        answer2: "Clarinet",
+        answer3: "Saxophone",
+        answer4: "Oboe",
+        rightAnswer: 2
+    }
+]
 
 function startQuiz() {
     homeEl.classList.add("hidden")
@@ -25,6 +67,6 @@ function startQuiz() {
     // setTimeout 
     
 };
-
+    
 startBtn.addEventListener("click", startQuiz);
 // answerBtn.addEventListener("click", correctAnswerFunc)
