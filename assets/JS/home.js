@@ -10,16 +10,19 @@
         // 2. then go to next question 
     // 3.2 create reusable function for eventing the elements for questions and answers
     // 3.3 need an array/variable/object to store questions and correct answer
-// 4. Subtract 5 seconds from timer if answer is wrong
+    // 4. Subtract 5 seconds from timer if answer is wrong
     // 4.1 Timer should be displayed while the questions and answers change
     
     
-const startBtn = document.getElementById("start-btn");    
-const homeEl = document.getElementById("home");
-const questionEl = document.getElementById("question");
+    const startBtn = document.getElementById("start-btn");    
+    const homeEl = document.getElementById("home");
+    const questionEl = document.getElementById("question-title");
+    const questionBox = document.getElementById("question-box");
+    const answerBtnsEl = document.getElementById('answer-btns');
+ 
 // var answerBtn = Array.from(document.getElementById("answer-btn"));
-var currentQuestion = {}
-var questions = [
+let currentQuestion = {}
+const questions = [
     {
         question: "In Jimmy Neutron, what is Jimmy's dad's favorite animal?",
         answer1: "Goose",
@@ -61,17 +64,28 @@ var questions = [
         rightAnswer: 2
     }
 ]
-const answerBtnsEl = document.getElementById('answer-btns')
+const score_points = 50;
+const question_count = 5
+const lastQuestion = questions.length - 1;
+
+function setNextQ() {
+
+    for (let i = 0; i < questions.length; i++) {
+        var nextQuestion = questions[i].question
+        // questionEl.appendChild('h1')
+        questionEl.innerText = nextQuestion
+        console.log(nextQuestion)
+        break
+    }
+};
 
 function startQuiz() {
     homeEl.classList.add("hidden");
-    score = 0;
-    nextQuestion = questions[0].question
-    // setNextQuestion();
-
+    score = 0
+    questionBox.classList.remove("hidden")
+    setNextQ()
     // setTimeout 
-    console.log(nextQuestion)
 };
-    
+
 startBtn.addEventListener("click", startQuiz);
 // answerBtn.addEventListener("click", correctAnswerFunc)
