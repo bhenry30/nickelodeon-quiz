@@ -17,9 +17,13 @@
     const startBtn = document.getElementById("start-btn");    
     const homeEl = document.getElementById("home");
     const questionEl = document.getElementById("question-title");
-    const questionBox = document.getElementById("question-box");
-    const answerBtnsEl = document.getElementById('answer-btns');
- 
+    const questionBoxEL = document.getElementById("question-box");
+    const answerBtnOneEl = document.getElementById('answer-1');
+    const answerBtnTwoEl = document.getElementById('answer-2');
+    const answerBtnThreeEl = document.getElementById('answer-3');
+    const answerBtnFourEl = document.getElementById('answer-4');
+    // const answerBtnEl = document.getElementsByClassName("answer")
+    
 // var answerBtn = Array.from(document.getElementById("answer-btn"));
 let currentQuestion = {}
 const questions = [
@@ -67,14 +71,43 @@ const questions = [
 const score_points = 50;
 const question_count = 5
 const lastQuestion = questions.length - 1;
-
+let i = -1
 function setNextQ() {
 
-    for (let i = 0; i < questions.length; i++) {
+    for (++i; i < questions.length; i++) {
         var nextQuestion = questions[i].question
+        var answerOne = questions[i].answer1
+        var answerTwo = questions[i].answer2
+        var answerThree = questions[i].answer3
+        var answerFour = questions[i].answer4
         // questionEl.appendChild('h1')
         questionEl.innerText = nextQuestion
+        answerBtnOneEl.innerText = answerOne
+        answerBtnTwoEl.innerText = answerTwo
+        answerBtnThreeEl.innerText = answerThree
+        answerBtnFourEl.innerText = answerFour
         console.log(nextQuestion)
+        switch (correct) {
+            case i = 0:
+                answerBtnTwoEl.classList.add('correct');
+                break;
+            case i = 1:
+                answerBtnTwoEl.classList.remove('correct');
+                answerBtnThreeEl.classList.add('correct');
+                break;
+            case i = 2:
+                answerBtnThreeEl.classList.remove('correct');
+                answerBtnOneEl.classList.add('correct');
+                break;
+            case i = 3:
+                answerBtnOneEl.classList.remove('correct');
+                answerBtnFourEl.classList.add('correct');
+                break;
+            case i = 4:
+                answerBtnFourEl.classList.remove('correct');
+                answerBtnTwoEl.classList.add('correct');
+                break;
+        }
         break
     }
 };
@@ -82,10 +115,13 @@ function setNextQ() {
 function startQuiz() {
     homeEl.classList.add("hidden");
     score = 0
-    questionBox.classList.remove("hidden")
+    questionBoxEL.classList.remove("hidden")
     setNextQ()
     // setTimeout 
 };
 
 startBtn.addEventListener("click", startQuiz);
-// answerBtn.addEventListener("click", correctAnswerFunc)
+answerBtnOneEl.addEventListener("click", setNextQ);
+answerBtnTwoEl.addEventListener("click", setNextQ);
+answerBtnThreeEl.addEventListener("click", setNextQ);
+answerBtnFourEl.addEventListener("click", setNextQ);
