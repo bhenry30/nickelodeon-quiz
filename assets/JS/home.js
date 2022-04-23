@@ -14,14 +14,16 @@
     // 4.1 Timer should be displayed while the questions and answers change
     
     
-    const startBtn = document.getElementById("start-btn");    
-    const homeEl = document.getElementById("home");
-    const questionEl = document.getElementById("question-title");
-    const questionBoxEL = document.getElementById("question-box");
-    const answerBtnOneEl = document.getElementById('answer-1');
-    const answerBtnTwoEl = document.getElementById('answer-2');
-    const answerBtnThreeEl = document.getElementById('answer-3');
-    const answerBtnFourEl = document.getElementById('answer-4');
+const startBtn = document.getElementById("start-btn");    
+const homeEl = document.getElementById("home");
+const questionEl = document.getElementById("question-title");
+const questionBoxEL = document.getElementById("question-box");
+const answerBtnOneEl = document.getElementById('answer-1');
+const answerBtnTwoEl = document.getElementById('answer-2');
+const answerBtnThreeEl = document.getElementById('answer-3');
+const answerBtnFourEl = document.getElementById('answer-4');
+const scoreEl = document.getElementById('score')
+const countEl = document.getElementById('count')
     // const answerBtnEl = document.getElementsByClassName("answer")
     
 // var answerBtn = Array.from(document.getElementById("answer-btn"));
@@ -68,12 +70,23 @@ const questions = [
         rightAnswer: 2
     }
 ]
+
 const score_points = 50;
 const question_count = 5
 const lastQuestion = questions.length - 1;
-let i = -1
-function setNextQ() {
+let score = 0;
+let i = -1;
+let count = 40
 
+
+scoreEl.innerText = score
+countEl.innerText = count
+
+function setNextQ() {
+    if (i == questions.length){
+        localStorage.setItem('recentScore', score)
+        window.location = ""
+    }
     for (++i; i < questions.length; i++) {
         var nextQuestion = questions[i].question
         var answerOne = questions[i].answer1
@@ -87,25 +100,25 @@ function setNextQ() {
         answerBtnThreeEl.innerText = answerThree
         answerBtnFourEl.innerText = answerFour
         console.log(nextQuestion)
-        switch (correct) {
+        switch (i) {
             case i = 0:
-                answerBtnTwoEl.classList.add('correct');
+                answerBtnTwoEl.dataset.answer = 'correct';
                 break;
             case i = 1:
-                answerBtnTwoEl.classList.remove('correct');
-                answerBtnThreeEl.classList.add('correct');
+                answerBtnTwoEl.dataset.answer = '';
+                answerBtnThreeEl.dataset.answer = 'correct';
                 break;
             case i = 2:
-                answerBtnThreeEl.classList.remove('correct');
-                answerBtnOneEl.classList.add('correct');
+                answerBtnThreeEl.dataset.answer = '';
+                answerBtnOneEl.dataset.answer = 'correct';
                 break;
             case i = 3:
-                answerBtnOneEl.classList.remove('correct');
-                answerBtnFourEl.classList.add('correct');
+                answerBtnOneEl.dataset.answer = '';
+                answerBtnFourEl.dataset.answer = 'correct';
                 break;
             case i = 4:
-                answerBtnFourEl.classList.remove('correct');
-                answerBtnTwoEl.classList.add('correct');
+                answerBtnFourEl.dataset.answer = '';
+                answerBtnTwoEl.dataset.answer = 'correct';
                 break;
         }
         break
@@ -120,8 +133,44 @@ function startQuiz() {
     // setTimeout 
 };
 
+function addScore(e) {
+    if (e.target.dataset.answer == 'correct') {
+        score += 50;
+        scoreEl.innerHTML = score
+        e.target.classList.add('correct')
+    } else {
+    e.target.classList.add('wrong')
+    count -= 5
+    }
+    setTimeout(function(){
+        e.target.classList.remove('wrong')
+        e.target.classList.remove('correct')
+        setNextQ();
+    }, 1200)
+    
+}
+
+function countdown() {
+    count--
+    countEl.innerText = count
+}
+
+
+let setInt = window.setInterval(() => {
+    if (count < 1) {
+        clearInterval(setInt);
+        window.alert("Time's up!");
+        window.location = 'file:///Users/brandonhenry/Desktop/bootcamp-projects/Module-4-Web-APIs/nickelodeon-quiz/highscores.html'
+    }
+
+    countdown()
+}, 1000)
+
+
+
 startBtn.addEventListener("click", startQuiz);
-answerBtnOneEl.addEventListener("click", setNextQ);
-answerBtnTwoEl.addEventListener("click", setNextQ);
-answerBtnThreeEl.addEventListener("click", setNextQ);
-answerBtnFourEl.addEventListener("click", setNextQ);
+answerBtnOneEl.addEventListener("click", addScore)
+answerBtnTwoEl.addEventListener("click", addScore)
+answerBtnThreeEl.addEventListener("click", addScore)
+answerBtnFourEl.addEventListener("click", addScore)
+  

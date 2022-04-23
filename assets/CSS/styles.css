@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #F57C13;
+    --primary-color: #f57c13;
     --secondary-color: white;
 background-color: var(--primary-color);
 }
@@ -48,6 +48,7 @@ display: none;
     border-width: 0px;
     border-radius: 40px;
     text-transform: uppercase;
+    text-decoration: none;
 }
 
 .btn:hover {
@@ -62,7 +63,17 @@ display: none;
 }
 
 .score-container {
-    display: flex;
+    display:block;
+    float:inline-start;
+    margin: 2rem;
+    padding: 1.5rem;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.count-container {
+    display:block;
+    float:inline-end;
     margin: 2rem;
     padding: 1.5rem;
     flex-direction: column;
@@ -76,7 +87,30 @@ display: none;
     font-weight: bold;
 }
 
+#counter-text {
+    color: white;
+    font-size: 2rem;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
 #score {
     justify-content: center;
-    padding-left: 1.5rem;
+    /* padding-left: 1.5rem; */
+}
+
+#counter {
+    justify-content: center;
+    /* padding-left: 1.5rem; */
+}
+
+
+.correct {
+background-color: #6CC314;
+color: white;
+}
+
+.wrong {
+background-color: #E71D36;
+color: white;
 }
