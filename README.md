@@ -1,6 +1,6 @@
 # Nickelodeon Quiz
 
-Nickelodean quiz is a 5-question quiz that tests your toon knowledge. It allows users to save high scores and 
+Nickelodeon quiz is a 5-question quiz that tests your toon knowledge. It allows users to save high scores and 
 
 ## Taking the Quiz
 
