@@ -82,10 +82,12 @@ let count = 40
 scoreEl.innerText = score
 countEl.innerText = count
 
+
 function setNextQ() {
-    if (i == questions.length){
+    if (i == questions.length -1){
+        
         localStorage.setItem('recentScore', score)
-        window.location = ""
+        window.location = "./score-input.html"
     }
     for (++i; i < questions.length; i++) {
         var nextQuestion = questions[i].question
@@ -130,6 +132,15 @@ function startQuiz() {
     score = 0
     questionBoxEL.classList.remove("hidden")
     setNextQ()
+    let setInt = window.setInterval(() => {
+        if (count < 1) {
+            clearInterval(setInt);
+            window.alert("Time's up!");
+            window.location = 'file:///Users/brandonhenry/Desktop/bootcamp-projects/Module-4-Web-APIs/nickelodeon-quiz/highscores.html'
+        }
+    
+        countdown()
+    }, 1000)
     // setTimeout 
 };
 
@@ -146,7 +157,7 @@ function addScore(e) {
         e.target.classList.remove('wrong')
         e.target.classList.remove('correct')
         setNextQ();
-    }, 1200)
+    }, 750)
     
 }
 
@@ -154,19 +165,6 @@ function countdown() {
     count--
     countEl.innerText = count
 }
-
-
-let setInt = window.setInterval(() => {
-    if (count < 1) {
-        clearInterval(setInt);
-        window.alert("Time's up!");
-        window.location = 'file:///Users/brandonhenry/Desktop/bootcamp-projects/Module-4-Web-APIs/nickelodeon-quiz/highscores.html'
-    }
-
-    countdown()
-}, 1000)
-
-
 
 startBtn.addEventListener("click", startQuiz);
 answerBtnOneEl.addEventListener("click", addScore)

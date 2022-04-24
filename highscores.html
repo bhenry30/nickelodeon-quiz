@@ -7,31 +7,16 @@
     <link rel="stylesheet" href="./assets/CSS/styles.css">
     <title>High Scores</title>
 </head>
-<body>
-    <!-- <div class="score-container">
-        <p id="score-text">
-            Score
-        </p>
-        <h1 id="score">
-            0
-        </h1>
-    </div>    -->
+<body style="background-color: #6CC314; height: 100vh;">
+    <br>
+    <br>
     <div class="container">
         <div id="scores" class="scores">
             <h1>High Scores</h1>
-           
-        </div>
-        <div id=question-box class="question hidden">
-            <h1 id="question-title"></h1>
-        
-            <div class="answer-btns">
-                <button class="answer btn" id="answer-1"></button>
-                <button class="answer btn" id="answer-2"></button>
-                <button class="answer btn" id="answer-3"></button>
-                <button class="answer btn" id="answer-4"></button>
-            </div>
+            <ul id="scores-list"></ul>
+            <button onclick="window.location.href='./index.html'" id="try-again-btn" class="btn">Try Again</button>
         </div>
     </div>
-    <script src="./assets/JS/home.js"></script>
+    <script src="./assets/JS/highscores.js"></script>
 </body>
 </html>

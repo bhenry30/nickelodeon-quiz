@@ -8,24 +8,22 @@
     <title>Nick Quiz</title>
 </head>
 <body>
+<div class="container">   
     <div class="score-container">
-        <p id="score-text">
-            Score
-        </p>
-        <h1 id="score">
-            0
-        </h1>
+        <p id="score-text">Score</p>
+        <h1 id="score">0</h1>
     </div>
     <div class="counter-container">
         <p id="counter-text">Time Left</p>
         <h1 id="count"></h1>
-    </div>   
-    <div class="container">
+    </div>  
+</div>      
+<div class="container">
         <div id="home" class="home">
             <h1>Smash the Start Button to Test Your Toon Knowledge!</h1>
             <div class="buttons">
                 <button id="start-btn" class="btn">Start</button>
-                <button id="scores-btn" href="/highscores.html" class="btn"><a href="./highscores.html" class="btn" id="scores-btn">High Scores</a></button>
+                <button onclick="window.location.href='./highscores.html'" id="scores-btn" class="btn">High Scores</button>
             </div>
         </div>
         <div id=question-box class="question hidden">
@@ -38,7 +36,7 @@
                 <button class="answer btn" data-answer id="answer-4"></button>
             </div>
         </div>
-    </div>
-    <script src="./assets/JS/home.js"></script>
+</div>
+<script src="./assets/JS/home.js"></script>
 </body>
 </html>

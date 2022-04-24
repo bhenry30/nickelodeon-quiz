@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/CSS/styles.css">
+    <title>High Scores</title>
+</head>
+<body>
+    <br>
+    <br>
+    <div class="container">
+        <div id="scores" class="scores">
+            <h3 style=" color: white; font-family:'Courier New', Courier, monospace; font-weight: bold; font-size: 3em;">Nice Work! Add your initials below to save your score.</h3>
+            <br>
+            <br>
+            <br>
+            <form action="./highscores.html">
+                <label style="font-family:'Courier New', Courier, monospace; font-weight: bold; font-size: 2em; color: white;" for="initials">Initials:</label><br>
+                <input type="text" id="initials" placeholder="AAA"><br><br>
+                <p style="font-family:'Courier New', Courier, monospace; font-weight: bold; font-size: 2em; color: white;">Score:</p>
+                <p style="font-family:'Courier New', Courier, monospace; font-weight: bold; font-size: 2em; color: white;" id="recent-score"></p>
+                <input id="submit" class="btn" type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    <script src="./assets/JS/score-input.js"></script>
+</body>
+</html>
