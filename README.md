@@ -12,7 +12,7 @@ Nickelodean quiz is a 5-question quiz that tests your toon knowledge. It allows 
 
 ![screenshot1](./assets/Photos/nick_home.png)
 ![screenshot2](./assets/Photos/nick_highscores.png)
-![screenshot3](./assets/Photos/nick_submitscores.png)
+![screenshot3](./assets/Photos/nick_submitscore.png)
 
 ## Technologies
 
